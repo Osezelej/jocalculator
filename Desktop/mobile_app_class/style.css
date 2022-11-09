@@ -1,0 +1,25 @@
+p{
+    font-size: 20px;
+    text-align: center;
+    text-decoration: underline;
+    font-style: oblique;
+    font-family: 'Courier New', Courier, monospace;
+    border-style: dotted;
+
+}
+
+h1{
+    background-color: red;
+    color:aliceblue;
+}
+
+#heading1{
+    background-color: green;
+}
+.heading{
+    background-color: aqua;
+    color: black;
+    border-style: dotted;
+    margin: 0;
+    padding: 100px;
+}
