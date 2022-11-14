@@ -36,35 +36,55 @@ const themeArr = [
     }
 
 ]
-let pos = 0;
-document.querySelector('.forward').addEventListener('click', ()=>{
-    pos += 1
-    if (pos >= themeArr.length - 1){
-        pos = 0
-    }
+// let pos = 0;
+// document.querySelector('.forward').addEventListener('click', ()=>{
+//     pos += 1
+//     if (pos >= themeArr.length - 1){
+//         pos = 0
+//     }
     
-    document.querySelector('body').style.backgroundImage = themeArr[pos].backgroundImage
-    document.querySelector('body').style.backgroundImage = 'transparent'
-    document.querySelector('body').style.backgroundColor = themeArr[pos].backgroundColor;
-    document.querySelector('.calculator').style.backgroundColor = themeArr[pos].calBackGroungColor;
-    document.querySelectorAll('button').forEach((element)=>{
-        element.style.backgroundColor = themeArr[pos].buttonBackgroundColor
+//     document.querySelector('body').style.backgroundImage = themeArr[pos].backgroundImage
+//     document.querySelector('body').style.backgroundImage = 'transparent'
+//     document.querySelector('body').style.backgroundColor = themeArr[pos].backgroundColor;
+//     document.querySelector('.calculator').style.backgroundColor = themeArr[pos].calBackGroungColor;
+//     document.querySelectorAll('button').forEach((element)=>{
+//         element.style.backgroundColor = themeArr[pos].buttonBackgroundColor
 
-    })
-})
+//     })
+// })
 
 
-document.querySelector('.backward').addEventListener('click', ()=>{
-    pos -= 1
-    if (pos >= themeArr.length - 1){
+// document.querySelector('.backward').addEventListener('click', ()=>{
+//     pos -= 1
+//     if (pos >= themeArr.length - 1){
+//         pos = 0
+//     }
+//     document.querySelector('body').style.backgroundColor = themeArr[pos].backgroundColor;
+//     // document.querySelector('body').style.backgroundImage = themeArr[pos].backgroundImage
+//     // document.querySelector('body').style.backgroundImage = 'transparent'
+//     document.querySelector('.calculator').style.backgroundColor = themeArr[pos].calBackGroungColor;
+//     document.querySelectorAll('button').forEach((element)=>{
+//         element.style.backgroundColor = themeArr[pos].buttonBackgroundColor
+
+//     })
+// })
+
+
+// document.querySelector('.forward').addEventListener('click', ()=>(console.log('i just got clicked')))
+// $('.forward').click(()=>(console.log('i just got clicked')))
+
+// let button = document.querySelectorAll('button')
+
+// for (let i = 0; i < button.length; i++){
+//     button[i].addEventListener('click', ()=>(console.log('i love js')))
+// }
+let pos = 0
+$('.forward').click(()=>{
+    pos += 1
+    if (pos == themeArr.length - 1){
         pos = 0
     }
-    document.querySelector('body').style.backgroundColor = themeArr[pos].backgroundColor;
-    // document.querySelector('body').style.backgroundImage = themeArr[pos].backgroundImage
-    // document.querySelector('body').style.backgroundImage = 'transparent'
-    document.querySelector('.calculator').style.backgroundColor = themeArr[pos].calBackGroungColor;
-    document.querySelectorAll('button').forEach((element)=>{
-        element.style.backgroundColor = themeArr[pos].buttonBackgroundColor
-
-    })
+    $('body').css('backgroundColor', themeArr[pos].backgroundColor)
+    $('.calculator').css('backgroundColor', themeArr[pos].calBackGroungColor)
+    $('button').css('backgroundColor', themeArr[pos].buttonBackgroundColor)
 })
