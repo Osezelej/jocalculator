@@ -88,3 +88,6 @@ $('.forward').click(()=>{
     $('.calculator').css('backgroundColor', themeArr[pos].calBackGroungColor)
     $('button').css('backgroundColor', themeArr[pos].buttonBackgroundColor)
 })
+
+$('.forward').attr('id', 'forwoar')
+console.log($('.forward').attr('id'))
