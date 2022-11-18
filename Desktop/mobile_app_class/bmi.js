@@ -5,7 +5,6 @@ function handleClick (){
     let height = $('.height_input').val()
 
     let BMI = weight / (height * height)
-    console.log(BMI)
     if (BMI < 18.6){
         $('.results').text('UNDERWEIGHT')
         $('.results').css('color', 'yellow')

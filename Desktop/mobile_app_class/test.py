@@ -42,23 +42,23 @@ class Model:
 
 DataObj = Model(data)
 option = DataObj.options
-question = DataObj.question_ans
-total  = len(question)
-score = 0
-for i in range(len(question)):
-    print(f'Q{i + 1}: {question[i][0]}')
-    for w in range(len(question[i][1])):
-        print(f'{option[w]}) {question[i][1][w]}.')
+# question = DataObj.question_ans
+# total  = len(question)
+# score = 0
+# for i in range(len(question)):
+#     print(f'Q{i + 1}: {question[i][0]}')
+#     for w in range(len(question[i][1])):
+#         print(f'{option[w]}) {question[i][1][w]}.')
     
-    ans = option.index(input('Ans: ').lower()) 
-    userAns = question[i][1][ans]
+#     ans = option.index(input('Ans: ').lower()) 
+#     userAns = question[i][1][ans]
 
-    if DataObj.check_answer(userAns, question[i][2]):
-        print('correct!')
-        score += 1
-    else:
-        print('incorrect')
+#     if DataObj.check_answer(userAns, question[i][2]):
+#         print('correct!')
+#         score += 1
+#     else:
+#         print('incorrect')
 
-    print('')
+#     print('')
 
-print(f'you Got {score}/{total}.')
+# print(f'you Got {score}/{total}.')

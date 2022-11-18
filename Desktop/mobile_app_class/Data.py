@@ -1,3 +1,4 @@
+from random import Random
 data = {"results": [{"question": "How many officially recognized dwarf planets in the solar system are named after Polynesian deities?",
                                          "correct_answer": "2", "incorrect_answers": ["0", "1", "5"]},
                                         {
@@ -34,5 +35,11 @@ data = {"results": [{"question": "How many officially recognized dwarf planets i
                                         {"category": "Science & Nature", "type": "multiple", "difficulty": "hard",
                                          "question": "How many types of quarks are there in the standard model of physics?",
                                          "correct_answer": "6", "incorrect_answers": ["2", "3", "4"]}]}
-def python():
-    return 'i love python'
+
+rand = Random()
+rand.shuffle(data['results'])
+result = data["results"]
+question_list = [item['question'] for item in data["results"]]
+print('')
+print('')
+print(question_list)
