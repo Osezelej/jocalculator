@@ -1,0 +1,64 @@
+body{
+    display:flex;
+    height: 100vh;
+    margin:0;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(254, 255, 179);
+}
+.body_container{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 4px;
+    height: 600px;
+    min-width: 300px;
+
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 5px;
+   
+}
+
+.inputs input{
+    height: 32px;
+    border: 1px solid rgb(61, 32, 32);
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+.weight_input{
+
+}
+.cal{
+    background-color: rgb(130, 130, 248);
+    font-size: 18px;
+    padding:7px;
+    border-style: none;
+    border-radius: 5px;
+    color: aliceblue;
+    font-weight: 700;
+
+}
+.results{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(240, 240, 240);
+    height: 300px;
+    border-style: solid;
+    margin-top: 10px;
+    border-radius: 5px;
+    border-color: rgb(130, 130, 248);
+    border-width: 1px;
+
+}
+h1{
+    font-size: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: rgb(54, 54, 54);
+}  
