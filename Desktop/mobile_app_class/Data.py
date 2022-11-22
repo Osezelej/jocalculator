@@ -42,4 +42,3 @@ result = data["results"]
 question_list = [item['question'] for item in data["results"]]
 print('')
 print('')
-print(question_list)

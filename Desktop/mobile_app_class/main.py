@@ -2,6 +2,7 @@ from Data import data
 import random
 from tkinter import *
 
+score = 0
 
 window = Tk()
 window.title('Quizz_Game')
@@ -16,13 +17,17 @@ rand.shuffle(data['results'])
 result = data['results']
 question_list = [item['question'] for item in result]
 answers = []
+correct_answers_index =[]
 correct_answer = [item['correct_answer'] for item in result]
 incorrect_answer = [item['incorrect_answers'] for item in result]
 
 for inc_a, c_a in zip(incorrect_answer, correct_answer):
     inc_a.append(c_a)
     rand.shuffle(inc_a)
+    correct_answers_index.append(inc_a.index(c_a))
     answers.append(inc_a)
+
+# print(correct_answers_index)
 
 question_index = 0
 question = question_list[question_index]
@@ -30,8 +35,8 @@ answer = answers[question_index]
 
 questions = StringVar()
 mode = StringVar()
-optiona = StringVar()  
-optionb = StringVar()  
+optiona = StringVar()
+optionb = StringVar()
 optionc = StringVar()
 optiond = StringVar()
 
@@ -45,9 +50,9 @@ display_question = Label(window, textvariable=questions, foreground='darkBlue',
 
 def change_question():
     global questions, question_index, answer
-
     if question_index < len(question_list) - 1:
         question_index += 1
+        # print(question_index)
         question = question_list[question_index]
         answer = answers[question_index]
         questions.set(f'Q{question_index + 1}:{question}')
@@ -62,15 +67,18 @@ def change_question():
                 d += 1
 
     else:
-        
-        question_index += 1
+        if question_index == len(question_list)- 1:
+            question_index += 1
         questions.set(f'YOU HAVE COMPLETED THE QUESTIONS')
-        optiona.set('')
-        optionb.set('')
-        optionc.set('')
-        optiond.set('')
-        next_button.config(text='Finish')
+        print(score)
+        option_a.destroy()
+        option_b.destroy()
+        option_c.destroy()
+        option_d.destroy()
 
+        next_button.config(text='Finish')
+        answer_button.destroy()
+        answer_entry.destroy()
 
 
 def change_questionback():
@@ -89,11 +97,12 @@ def change_questionback():
             for i in range(num):
                 options[-d].set('')
                 d += 1
+    if question_index == len(question_list) - 1:
+        next_button.config(text='Next')
     
 display_question.pack()
 
 questions.set(f'Q{question_index + 1}:{question}')
-  
   
 
 next_button = Button(window, text='Next', relief='groove' , foreground='darkBlue', background='orange', command= change_question)
@@ -156,4 +165,40 @@ option_d = Label(window, textvariable=optiond, foreground='darkBlue',
   )
 option_d.pack()
 
+
+no_of_char = 0
+def answer_validate(e):
+    global no_of_char
+    no_of_char += 1
+    if no_of_char > 1:
+        answer_entry.delete(0, 'end')
+        
+ 
+def answercheck():
+    global alpha, score
+    if answer_entry.get().lower() not in alpha:
+        error.set('Enter the right option')
+    else:
+        if alpha.index(answer_entry.get().lower()) == correct_answers_index[question_index]:
+            score += 1
+        change_question()
+        answer_entry.delete(0, 'end')
+        error.set('')
+        
+
+
+answer_entry = Entry(window,highlightcolor='lightGreen',justify='center', width=3, font=('sanserif', 12, 'bold'))
+answer_entry.pack(pady=10)
+answer_entry.bind('<KeyPress>', answer_validate)
+
+
+answer_button = Button(window, text='Submit', relief='groove' , foreground='darkBlue', background='orange', command= answercheck)
+answer_button.pack()
+
+
+error = StringVar()
+errorMsg = Label(window, textvariable=error, foreground='red', font=('sanserif', 10, 'bold') , background='lightGreen')
+errorMsg.pack(side='bottom')
 window.mainloop()
+
+
